@@ -2,7 +2,7 @@ package com.digdes.mapping;
 
 import com.digdes.dto.CreateMemberDto;
 import com.digdes.dto.MemberDto;
-import com.digdes.model.Member;
+import com.digdes.models.Member;
 
 import java.util.StringJoiner;
 

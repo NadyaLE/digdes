@@ -17,7 +17,7 @@
         </dependency>
         <dependency>
             <groupId>com.digdes</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>models</artifactId>
             <version>${revision}${changelist}</version>
         </dependency>
         <dependency>

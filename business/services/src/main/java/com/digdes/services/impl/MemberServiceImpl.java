@@ -3,7 +3,7 @@ package com.digdes.services.impl;
 import com.digdes.dto.CreateMemberDto;
 import com.digdes.dto.MemberDto;
 import com.digdes.mapping.MemberMapper;
-import com.digdes.model.Member;
+import com.digdes.models.Member;
 import com.digdes.repositories.MemberRepository;
 import com.digdes.repositories.impl.MemberRepositoryImpl;
 import com.digdes.services.MemberService;

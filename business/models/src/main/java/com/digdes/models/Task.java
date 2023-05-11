@@ -1,4 +1,4 @@
-package com.digdes.model;
+package com.digdes.models;
 
 import java.util.Date;
 

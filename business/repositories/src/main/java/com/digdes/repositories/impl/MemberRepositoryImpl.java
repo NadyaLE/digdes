@@ -1,6 +1,6 @@
 package com.digdes.repositories.impl;
 
-import com.digdes.model.Member;
+import com.digdes.models.Member;
 import com.digdes.repositories.MemberRepository;
 
 import java.util.ArrayList;

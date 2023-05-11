@@ -10,7 +10,7 @@
     <artifactId>business</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>model</module>
+        <module>models</module>
         <module>repositories</module>
         <module>services</module>
     </modules>

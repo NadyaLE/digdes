@@ -1,6 +1,6 @@
 package com.digdes.repositories;
 
-import com.digdes.model.Member;
+import com.digdes.models.Member;
 
 import java.util.List;
 
