@@ -1,0 +1,26 @@
+version: "2.9"
+services:
+
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=lecture2-db
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./imports/db/:/docker-entrypoint-initdb.d/
+    restart: always
+    networks:
+      - java-2023
+
+  lecture2-sample:
+    image: lecture2-sample:1
+    networks:
+      - java-2023
+
+networks:
+  java-2023:
