@@ -3,16 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
-    <groupId>com.digdes</groupId>
+    <groupId>com.litke.project_manager</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
     <version>${revision}${changelist}</version>
     <modules>
-        <module>web</module>
-        <module>app</module>
-        <module>business</module>
-        <module>dto</module>
+        <module>pm_web</module>
+        <module>pm_application</module>
+        <module>pm_business</module>
+        <module>pm_dto</module>
     </modules>
 
     <properties>
@@ -40,7 +39,7 @@
                     <finalName>sample-exec</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>com.digdes.app.MainApp</mainClass>
+                            <mainClass>MainApp</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
