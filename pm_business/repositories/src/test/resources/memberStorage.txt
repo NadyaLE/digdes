@@ -1,0 +1,4 @@
+{"id":1,"firstName":"John","lastName":"Dorian","surname":null,"jobTitle":null,"account":null,"email":null,"status":"ACTIVE"}
+{"id":2,"firstName":"Elliot","lastName":"Rid","surname":null,"jobTitle":null,"account":null,"email":"er@hg.com","status":"DELETED"}
+{"id":3,"firstName":"Perry","lastName":"Cocks","surname":null,"jobTitle":null,"account":null,"email":"pk@sf.com","status":"ACTIVE"}
+{"id":4,"firstName":"Kristofer","lastName":null,"surname":null,"jobTitle":null,"account":null,"email":null,"status":"ACTIVE"}

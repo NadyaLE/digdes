@@ -1,42 +1,81 @@
 package com.litke.project_manager.pm_business.models;
 
-import java.util.Date;
+import com.litke.project_manager.pm_business.models.enums.TaskStatus;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class Task {
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Task implements Serializable {
     private Long id;
-    private String displayName;
-    private Date dateCreated;
+    private String name;
+    private String description;
+    private Member executor;
+    private Integer laborCosts;
+    private LocalDateTime dateCreated;
+    private LocalDateTime dateChanged;
+    private LocalDateTime deadline;
     private Member author;
+    private TaskStatus status = TaskStatus.NEW;
 
-    public Long getId() {
-        return id;
+    public Task(String name, Integer laborCosts, LocalDateTime deadline) {
+        this.name = name;
+        this.laborCosts = laborCosts;
+        this.deadline = deadline;
     }
 
-    public void setId(Long id) {
+    public Task setId(Long id) {
         this.id = id;
+        return this;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public Task setName(String name) {
+        this.name = name;
+        return this;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public Task setDescription(String description) {
+        this.description = description;
+        return this;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Task setExecutor(Member executor) {
+        this.executor = executor;
+        return this;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public Task setLaborCosts(Integer laborCosts) {
+        this.laborCosts = laborCosts;
+        return this;
+    }
+
+    public Task setDateCreated(LocalDateTime dateCreated) {
         this.dateCreated = dateCreated;
+        return this;
     }
 
-    public Member getAuthor() {
-        return author;
+    public Task setDateChanged(LocalDateTime dateChanged) {
+        this.dateChanged = dateChanged;
+        return this;
     }
 
-    public void setAuthor(Member author) {
+    public Task setDeadline(LocalDateTime deadline) {
+        this.deadline = deadline;
+        return this;
+    }
+
+    public Task setAuthor(Member author) {
         this.author = author;
+        return this;
+    }
+
+    public Task setStatus(TaskStatus status) {
+        this.status = status;
+        return this;
     }
 }

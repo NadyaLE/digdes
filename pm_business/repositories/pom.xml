@@ -15,6 +15,12 @@
             <artifactId>models</artifactId>
             <version>${revision}${changelist}</version>
         </dependency>
+        <dependency>
+            <groupId>com.litke.project_manager</groupId>
+            <artifactId>pm_dto</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
