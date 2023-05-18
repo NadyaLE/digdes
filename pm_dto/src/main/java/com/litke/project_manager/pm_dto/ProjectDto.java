@@ -16,7 +16,7 @@ import java.util.Optional;
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProjectDto {
-    Optional<Long> id;
+    Long id;
     Optional<String> projectCode;
     Optional<String> name;
     Optional<String> description;

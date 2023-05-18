@@ -18,7 +18,7 @@ import java.util.Optional;
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TaskDto {
-    Optional<Long> id;
+    Long id;
     Optional<String> name;
     Optional<String> description;
     Optional<Member> executor;

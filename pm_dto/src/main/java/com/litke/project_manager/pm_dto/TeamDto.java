@@ -19,7 +19,7 @@ import java.util.Optional;
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TeamDto {
-    Optional<Long> id;
+    Long id;
     Optional<Project> teamProject;
     Optional<Map<Member, Role>> membersRole;
 }

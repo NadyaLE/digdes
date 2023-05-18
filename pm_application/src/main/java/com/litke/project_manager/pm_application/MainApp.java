@@ -1,17 +1,14 @@
 package com.litke.project_manager.pm_application;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.litke.project_manager.pm_business.models.Member;
 import com.litke.project_manager.pm_business.models.Project;
 import com.litke.project_manager.pm_business.models.Task;
-import com.litke.project_manager.pm_business.models.enums.MemberStatus;
 import com.litke.project_manager.pm_business.models.enums.Role;
 import com.litke.project_manager.pm_dto.MemberDto;
 import com.litke.project_manager.pm_dto.ProjectDto;
-import com.litke.project_manager.pm_dto.TaskDto;
 import com.litke.project_manager.pm_dto.TeamDto;
 import com.litke.project_manager.pm_web.MemberController;
 
@@ -48,7 +45,7 @@ public class MainApp {
 
 
         Member person = new Member("Sasha","Ivanov");
-        Member person2 = new Member("Alex","Smirnov").setEmail("sm@gmail.com");
+        Member person2 = new Member("Alex","Smirnov");
 
         Task task = new Task("sort",120, LocalDateTime.now());
         Task task2 = new Task("reverse",80, LocalDateTime.now());
@@ -56,9 +53,9 @@ public class MainApp {
         Project project = new Project("1L","project1");
         Project project2 = new Project("2L","project2");
 
-        TeamDto team = new TeamDto(Optional.of(12L), Optional.of(new Project("sos", "sad")),
+        TeamDto team = new TeamDto(12L, Optional.of(new Project("sos", "sad")),
                 Optional.of(new HashMap<>(){{put(person, Role.ANALYST); put(person2,Role.DEVELOPER);}}));
-        TeamDto team2 = new TeamDto(Optional.of(13L), Optional.of(new Project("sos", "sad")), Optional.of(new HashMap<>()));
+        TeamDto team2 = new TeamDto(13L, Optional.of(new Project("sos", "sad")), Optional.of(new HashMap<>()));
 
 
         String jsonString = null;
@@ -70,7 +67,7 @@ public class MainApp {
 
             // Сериализация объекта — преобразование объекта `Person` в строку JSON
             MemberDto md = new MemberDto();
-            md.setId(Optional.of(13L));
+            md.setId(13L);
             md.setLastName(Optional.of("Rere"));
             md.setStatus(Optional.empty());
 

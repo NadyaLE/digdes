@@ -16,7 +16,7 @@ import java.util.Optional;
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MemberDto {
-    Optional<Long> id;
+    Long id;
     Optional<String> firstName;
     Optional<String> lastName;
     Optional<String> surname;

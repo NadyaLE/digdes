@@ -18,8 +18,19 @@
         <dependency>
             <groupId>com.litke.project_manager</groupId>
             <artifactId>pm_dto</artifactId>
-            <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${revision}${changelist}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
         </dependency>
     </dependencies>
 

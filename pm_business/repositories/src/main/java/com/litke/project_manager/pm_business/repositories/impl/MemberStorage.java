@@ -1,21 +1,22 @@
 package com.litke.project_manager.pm_business.repositories.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.litke.project_manager.pm_business.models.Member;
-import com.litke.project_manager.pm_dto.MemberDto;
 
 import java.io.*;
 import java.util.List;
 
 public class MemberStorage extends MemberRepositoryImpl {
-
+    protected final ObjectMapper objectMapper = new ObjectMapper().registerModule(new Jdk8Module());
     @Override
-    public Member create(MemberDto value) {
+    public Member create(Member value) {
         return super.create(value);
     }
 
     @Override
-    public Member update(MemberDto updatedValue) {
+    public Member update(Member updatedValue) {
         return super.update(updatedValue);
     }
 

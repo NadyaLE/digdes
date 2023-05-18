@@ -15,24 +15,27 @@ import java.util.stream.Collectors;
 public class MemberServiceImpl implements MemberService {
 
     private final ObjectMapper memberMapper = new ObjectMapper().registerModule(new Jdk8Module());
-    private final Repository<Member,MemberDto> memberRepository = new MemberRepositoryImpl();
+    private final Repository<Member> memberRepository = new MemberRepositoryImpl();
 
     public MemberDto create(MemberDto newMember) {
-        try{
-        Member member = memberRepository.create(newMember);
-        return memberMapper.updateValue(newMember, member);
-        } catch (JsonMappingException ex){
+        try {
+            Member member = memberRepository.create(memberMapper.updateValue(new Member(), newMember));
+            if (member != null) {
+                return memberMapper.updateValue(newMember, member);
+            }
+        } catch (JsonMappingException ex) {
             ex.printStackTrace();
         }
         return null;
     }
 
 
-    public List<MemberDto> getAll(){
+    public List<MemberDto> getAll() {
         List<Member> members = memberRepository.getAll();
-        return members.stream().map(e -> {MemberDto md = new MemberDto();
+        return members.stream().map(e -> {
+            MemberDto md = new MemberDto();
             try {
-                memberMapper.updateValue(md,e);
+                memberMapper.updateValue(md, e);
             } catch (JsonMappingException ex) {
                 ex.printStackTrace();
             }

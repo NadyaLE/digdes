@@ -11,22 +11,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
+            <groupId>com.litke.project_manager</groupId>
+            <artifactId>models</artifactId>
+            <version>${revision}${changelist}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.litke.project_manager</groupId>
-            <artifactId>models</artifactId>
-            <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
