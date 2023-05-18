@@ -1,29 +1,45 @@
 package com.litke.project_manager.pm_business.services.impl;
 
-import com.litke.project_manager.pm_business.mapping.MemberMapper;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.litke.project_manager.pm_business.models.Member;
-import com.litke.project_manager.pm_dto.CreateMemberDto;
-import com.litke.project_manager.pm_dto.MemberDto;
-import com.litke.project_manager.pm_business.repositories.MemberRepository;
+import com.litke.project_manager.pm_business.repositories.Repository;
 import com.litke.project_manager.pm_business.repositories.impl.MemberRepositoryImpl;
 import com.litke.project_manager.pm_business.services.MemberService;
+import com.litke.project_manager.pm_dto.MemberDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class MemberServiceImpl implements MemberService {
 
-    private final MemberMapper memberMapper = new MemberMapper();
-    private final MemberRepository memberRepository = new MemberRepositoryImpl();
+    private final ObjectMapper memberMapper = new ObjectMapper().registerModule(new Jdk8Module());
+    private final Repository<Member> memberRepository = new MemberRepositoryImpl();
 
-    public MemberDto create(CreateMemberDto newMember){
-        Member member = memberMapper.create(newMember);
-        member = memberRepository.createMember(member);
-        return memberMapper.map(member);
+    public MemberDto create(MemberDto newMember) {
+        try {
+            Member member = memberRepository.create(memberMapper.updateValue(new Member(), newMember));
+            if (member != null) {
+                return memberMapper.updateValue(newMember, member);
+            }
+        } catch (JsonMappingException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
-    public List<MemberDto> getAll(){
+
+    public List<MemberDto> getAll() {
         List<Member> members = memberRepository.getAll();
-        return members.stream().map(memberMapper::map).collect(Collectors.toList());
+        return members.stream().map(e -> {
+            MemberDto md = new MemberDto();
+            try {
+                memberMapper.updateValue(md, e);
+            } catch (JsonMappingException ex) {
+                ex.printStackTrace();
+            }
+            return md;
+        }).collect(Collectors.toList());
     }
 }

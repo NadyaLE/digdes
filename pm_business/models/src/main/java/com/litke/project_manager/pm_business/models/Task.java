@@ -1,42 +1,33 @@
 package com.litke.project_manager.pm_business.models;
 
-import java.util.Date;
+import com.litke.project_manager.pm_business.models.enums.TaskStatus;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class Task {
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Task implements Serializable {
     private Long id;
-    private String displayName;
-    private Date dateCreated;
+    private String name;
+    private String description;
+    private Member executor;
+    private Integer laborCosts;
+    private LocalDateTime dateCreated;
+    private LocalDateTime dateChanged;
+    private LocalDateTime deadline;
     private Member author;
+    private TaskStatus status = TaskStatus.NEW;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public Member getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Member author) {
-        this.author = author;
+    public Task(String name, Integer laborCosts, LocalDateTime deadline) {
+        this.name = name;
+        this.laborCosts = laborCosts;
+        this.deadline = deadline;
     }
 }

@@ -20,6 +20,10 @@
             <artifactId>pm_dto</artifactId>
             <version>${revision}${changelist}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
